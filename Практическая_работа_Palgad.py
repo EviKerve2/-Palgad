@@ -69,30 +69,6 @@ def keskmine_kustutamine(i,p): #удаление всех зарплат ниж�
             w+=1
     print("В списке зарплат остались зарплаты выше средней: ",p)
 
-def sorteerimine_nimi_jargi (p,i,v): #сортиуем по именам от А до Я
-    N=len(p)
-    if v==2:
-        for n in range(0,N):
-            for m in range(n,N):
-                if p[n]<p[m]:
-                    abi=p[n]
-                    p[n]=p[m]
-                    p[m]=abi
-                    abi=i[n]
-                    i[n]=i[m]
-                    i[m]=abi
-
-    elif v==1:
-        for n in range(0,N): #сортируем в обратном порядке от Я до А
-            for m in range(n,N):
-                if p[n]>p[m]:
-                    abi=p[n]
-                    p[n]=p[m]
-                    p[m]=abi
-                    abi=i[n]
-                    i[n]=i[m]
-                    i[m]=abi
-    andmed_ekranile(i,p)
 
 def name_search1(i,p):
     nimi=input("Введите имя работника: ")
