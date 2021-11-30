@@ -1,22 +1,22 @@
 from random import *
 inimised=["Pillipets", "Zemlyakov", "Vinogradova", "Komarova", "Kerve", "Illing"]
-palgad=[2500, 2300, 2000, 1900, 1700, 1500, 1000, 500]
+palgad=[2500, 2300, 2000, 1900, 1700, 1500, 1300, 500]
 
 def sisesta_andmed(i,p): #Добавить в список новых три фамилии
     N=3
     for n in range(N):
         a=input("Введите фамилию нового работника: ")
         i.append(a)
-        palk=randint(100,10000)
+        palk=randint(100,10000) #Вводит рандомную зарплату новому работнику
         p.append(palk)
     return i,p
 
-def andmed_ekranile(i,p): #выводим на экран список имен и зарплат
+def andmed_ekranile(i,p): #выводит на экран список имен и зарплат
     N=len(i)
     for n in range(N):
         print(i[n],"-",p[n])
 
-def kustutamine(i,p): #удаляем человека из списка
+def kustutamine(i,p): #удаляет человека из списка
     nimi=input("Введите имя для удаления из списка: ")
     n=i.count(nimi)
     abi_list=[]
@@ -31,7 +31,6 @@ def kustutamine(i,p): #удаляем человека из списка
         i.pop(abi_list[jaar-1])
         p.pop(abi_list[jaar-1])
         andmed_ekranile(i,p)
-
     return i,p
         
 def top3(i,p,v): #три самых высоких зарплаты
@@ -54,7 +53,7 @@ def top3(i,p,v): #три самых высоких зарплаты
             print(p[j])
             print(i[j])
 
-def keskmine_kustutamine(i,p): #удаление всех зарплат ниже средней
+def keskmine_kustutamine(i,p): #удаляет все зарплаты ниже средней
     summa=0
     new_list5=[]
     for palk in p:
@@ -78,10 +77,10 @@ def name_search1(i,p):
         for e in range(len(i)):
             if i[e]==nimi:
                 t+=1
-                print(t,". ",i[e]," - ", p[e] )
+                print(t,". ",i[e]," - ",p[e] )
 
 while 1:
-    print("a - ввод данных: \ne - вывод на экран: \nk - удаление зарплат ниже средней.\nz - топ три. \nl - удаление зарплат ниже средней. \nu - поиск зарплат по имени.")
+    print("a - ввод данных: \ne - вывод на экран: \nk - удаление зарплат ниже средней.\nz - топ три. \nu - поиск зарплат по имени.")
     valik=input()
     if valik.lower()=="a":
         inimised,palgad=sisesta_andmed(inimised,palgad)
@@ -91,8 +90,6 @@ while 1:
         inimised,palgad=kustutamine(inimised, palgad)
     elif valik.lower()=="z":
         top3(inimised,palgad, int(input("1 - топ трех самых богатых, 2 - топ трех самых бедных.")))
-    elif valik.lower()=="l":
-        keskmine_kustutamine(inimised,palgad)
     elif valik.lower()=="u":
         name_search1(inimised, palgad)
     else:
